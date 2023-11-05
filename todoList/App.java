@@ -23,7 +23,7 @@ public class App {
     public void editTask(ArrayList<Task> tasks){
         int checkNum=getNumber();
         for (Task obj : tasks) {
-            if (obj.getTaskNumber() == checkNum) {
+            if (tasks.indexOf(obj) == checkNum) {
                 EditTask.editTask(obj);
             }
         }
@@ -38,7 +38,7 @@ public class App {
     public void markComplete(ArrayList<Task> tasks){
         int checkNum=getNumber();
         for (Task obj: tasks) {
-            if(obj.taskNumber==checkNum){
+            if(tasks.indexOf(obj)==checkNum){
                 obj.setTaskStatus(true);
             }
         }
@@ -46,7 +46,9 @@ public class App {
 
     public void printTasks(ArrayList<Task> tasks){
         for (Task obj : tasks) {
-            System.out.println(obj);
+            int index=tasks.indexOf(obj);
+            System.out.print("Task Number: "+ (index+1));
+            System.out.print(obj);
             System.out.println();
         }
     }
@@ -54,7 +56,7 @@ public class App {
     public void setPriority(ArrayList<Task> tasks){
         int checkNum=getNumber();
         for (Task obj: tasks) {
-            if(obj.taskNumber==checkNum){
+            if(tasks.indexOf(obj)==checkNum){
                 obj.setPriority();
             }
         }
